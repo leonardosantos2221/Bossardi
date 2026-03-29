@@ -1,532 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante e Churrascaria Bossardi - Campina Grande do Sul</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churrascaria Bossardi</title>
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#f5f5f5;color:#333}
+html{scroll-behavior:smooth}
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+/* HEADER */
+header{
+background:#8B4513;
+color:#fff;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+padding:1rem 2rem;
+display:flex;
+justify-content:space-between;
+}
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #FFD700;
-        }
+header h1{color:#FFD700;font-size:1.5rem}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+/* HERO */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+url('https://images.unsplash.com/photo-1555992336-03a23c9f1d1a');
+background-size:cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff;
+}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+.hero h2{font-size:3rem;margin-bottom:1rem}
+.btn{
+background:#FFD700;
+padding:1rem 2rem;
+border-radius:50px;
+color:#8B4513;
+text-decoration:none;
+font-weight:600;
+}
 
-        .nav-links a:hover {
-            color: #FFD700;
-        }
+/* SECTIONS */
+section{padding:5rem 2rem}
+.container{max-width:1200px;margin:auto}
 
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+.section-title{
+text-align:center;
+font-size:2.5rem;
+color:#8B4513;
+margin-bottom:3rem;
+letter-spacing:1px;
+}
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23A0522D" width="1200" height="600"/><text x="50%" y="50%" font-family="Arial" font-size="60" fill="%23FFD700" text-anchor="middle" dy=".3em">Churrasco na Brasa</text></svg>');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
+/* MENU PREMIUM */
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
+.menu-item-img{
+position:relative;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer;
+border:2px solid rgba(255,215,0,0.2);
+transition:.3s;
+}
 
-        .hero-content .rating {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: #FFD700;
-        }
+.menu-item-img img{
+width:100%;
+height:220px;
+object-fit:cover;
+filter:contrast(1.1) brightness(0.95) saturate(1.1);
+transition:.4s;
+}
 
-        .hero-content .price {
-            font-size: 1.5rem;
-            background: #FFD700;
-            color: #8B4513;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
+.menu-item-img:hover img{
+transform:scale(1.08);
+}
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.menu-item-img:hover{
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
 
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
+.menu-item-img::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
+}
 
-        .btn-primary {
-            background: #FFD700;
-            color: #8B4513;
-        }
+.menu-label{
+position:absolute;
+bottom:15px;
+left:15px;
+color:#fff;
+font-weight:600;
+z-index:2;
+}
 
-        .btn-primary:hover {
-            background: #FFED4A;
-            transform: translateY(-2px);
-        }
+/* CONTATO */
+.contact{
+text-align:center;
+}
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
+.whatsapp{
+display:inline-block;
+margin-top:1rem;
+background:#25D366;
+color:#fff;
+padding:1rem 2rem;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+}
 
-        .btn-secondary:hover {
-            background: white;
-            color: #8B4513;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #8B4513;
-        }
-
-        /* Info Section */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .info-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .info-card i {
-            font-size: 2.5rem;
-            color: #8B4513;
-            margin-bottom: 1rem;
-        }
-
-        /* Menu Section */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .menu-category {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .menu-category h3 {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: white;
-            padding: 1.5rem;
-            margin: 0;
-        }
-
-        .menu-item {
-            padding: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .menu-item h4 {
-            color: #8B4513;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Reviews */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .review-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .stars {
-            color: #FFD700;
-            margin-bottom: 1rem;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: #8B4513;
-            width: 40px;
-        }
-
-        /* Footer */
-        footer {
-            background: #2c2c2c;
-            color: white;
-            text-align: center;
-            padding: 3rem 0 1rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-    </style>
+/* RESPONSIVO */
+@media(max-width:768px){
+.hero h2{font-size:2rem}
+}
+</style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">
-                <i class="fas fa-utensils"></i> Bossardi Churrascaria
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#avaliacoes">Avaliações</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Restaurante e Churrascaria Bossardi</h1>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                4.6 (1.733 avaliações)
-            </div>
-            <div class="price">R$ 80 - 100 por pessoa</div>
-            <div class="cta-buttons">
-                <a href="#contato" class="btn btn-primary">Reservar Mesa</a>
-                <a href="#menu" class="btn btn-secondary">Ver Menu</a>
-            </div>
-        </div>
-    </section>
+<header>
+<h1>Bossardi</h1>
+</header>
 
-    <!-- Info Section -->
-    <section id="sobre" class="info-section">
-        <div class="container">
-            <h2 class="section-title">Sobre o Bossardi</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fas fa-fire"></i>
-                    <h3>Rodízio de Carnes</h3>
-                    <p>Carnes nobres assadas na brasa com perfeição, cortadas na mesa em clima familiar tradicional.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-utensils"></i>
-                    <h3>Buffet Completo</h3>
-                    <p>Saladas frescas, buffet quente e acompanhamentos variados para complementar sua refeição.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Horários</h3>
-                    <p>Fechado ⋅ Abre às 07:30 de domingo<br>Horas populares: Sábados</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Localização</h3>
-                    <p>Rua Pedro Bossardi, 69 - Jardim Paulista<br>Campina Grande do Sul - PR, 83430-000</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<div>
+<h2>Churrascaria Premium</h2>
+<p>O melhor rodízio da região</p>
+<br>
+<a href="#menu" class="btn">Ver Cardápio</a>
+</div>
+</section>
 
-    <!-- Menu Section -->
-    <section id="menu" style="background: #f8f9fa;">
-        <div class="container">
-            <h2 class="section-title">Nosso Menu</h2>
-            <div class="menu-grid">
-                <div class="menu-category">
-                    <h3><i class="fas fa-fire"></i> Carnes Nobres</h3>
-                    <div class="menu-item">
-                        <h4>Picanha na Brasa</h4>
-                        <p>Suculenta e mal passada, cortada na mesa</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Fraldinha</h4>
-                        <p>Macia e saborosa, tempero especial</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Costela de Boi</h4>
-                        <p>Desmanchando na boca</p>
-                    </div>
-                </div>
+<section id="menu">
+<div class="container">
 
-                <div class="menu-category">
-                    <h3><i class="fas fa-leaf"></i> Buffet Saladas</h3>
-                    <div class="menu-item">
-                        <h4>Salada Verde</h4>
-                        <p>Folhas frescas, tomate, cebola</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Green Bean</h4>
-                        <p>Vagem francesa refogada</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Saladas Variadas</h4>
-                        <p>Maionese, salpicão e mais</p>
-                    </div>
-                </div>
+<h2 class="section-title">Nosso Cardápio</h2>
 
-                <div class="menu-category">
-                    <h3><i class="fas fa-drumstick-bite"></i> Petiscos & Acompanhamentos</h3>
-                    <div class="menu-item">
-                        <h4>Asinhas</h4>
-                        <p>Asinhas crocantes apimentadas</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Yakitori</h4>
-                        <p>Espetinhos orientais defumados</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Cevada</h4>
-                        <p>Cerveja gelada para acompanhar</p>
-                    </div>
-                </div>
+<div class="menu-grid">
 
-                <div class="menu-category">
-                    <h3><i class="fas fa-hotdog"></i> Buffet Quente</h3>
-                    <div class="menu-item">
-                        <h4>Farofa Especial</h4>
-                        <p>Com bacon e linguiça</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Arroz Carreteiro</h4>
-                        <p>Tradicional do sul</p>
-                    </div>
-                    <div class="menu-item">
-                        <h4>Mandioca Frita</h4>
-                        <p>Crocante e irresistível</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="menu-item-img">
+<img src="carne.jpg">
+<div class="menu-label">Carnes Nobres</div>
+</div>
 
-    <!-- Reviews Section -->
-    <section id="avaliacoes">
-        <div class="container">
-            <h2 class="section-title">O que dizem nossos clientes</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Melhor churrascaria da região! Carnes perfeitas e atendimento impecável."</p>
-                    <strong>- João Silva</strong>
-                </div>
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>"Buffet de saladas excelente! Ambiente familiar e acolhedor."</p>
-                    <strong>- Maria Oliveira</strong>
-                </div>
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Rodízio imbatível pelo preço. Voltaremos sempre!"</p>
-                    <strong>- Carlos Santos</strong>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="menu-item-img">
+<img src="salada.jpg">
+<div class="menu-label">Buffet Saladas</div>
+</div>
 
-    <!-- Contact Section -->
-    <section id="contato" style="background: #f8f9fa;">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3><i class="fas fa-phone"></i> (41) 3679-1420</h3>
-                    <p>Comer no local | Take away | Entrega sem contato</p>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Rua Pedro Bossardi, 69 - Jardim Paulista<br>Campina Grande do Sul - PR, 83430-000</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <span>pt-br.facebook.com/bossardichurrascaria</span>
-                    </div>
-                </div>
-                <div class="contact-info" style="background: #8B4513; color: white;">
-                    <h3>Faça sua Reserva</h3>
-                    <p>Garanta sua mesa conosco!</p>
-                    <a href="tel:+554136791420" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Ligar Agora</a>
-                    <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: 1rem; border-color: white; color: white;">WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="menu-item-img">
+<img src="asinhas.jpg">
+<div class="menu-label">Asinhas</div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Restaurante e Churrascaria Bossardi
+<div class="menu-item-img">
+<img src="yakitori.jpg">
+<div class="menu-label">Yakitori</div>
+</div>
+
+<div class="menu-item-img">
+<img src="buffet.jpg">
+<div class="menu-label">Buffet Quente</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="contact">
+<h2 class="section-title">Faça sua Reserva</h2>
+
+<a href="https://wa.me/554136791420?text=Olá! Quero reservar uma mesa." 
+target="_blank" class="whatsapp">
+Reservar pelo WhatsApp
+</a>
+
+</section>
+
+</body>
+</html>
